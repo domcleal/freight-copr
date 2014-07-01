@@ -43,9 +43,9 @@ mkdir -p %{buildroot}%{_sharedstatedir}/%{name}
 # VARCACHE, freight cache (to be served by httpd)
 mkdir -p %{buildroot}%{_localstatedir}/cache/%{name}
 
-# symlink /usr/lib/freight to /usr/share/freight as scripts expect it
-mkdir -p %{buildroot}%{_prefix}/lib
-ln -s %{_datadir}/%{name} %{buildroot}%{_prefix}/lib/%{name}
+# use /usr/share instead of /usr/lib for shell utils
+find %{buildroot}%{_bindir} -type f -exec sed -i \
+  '/dirname/ s|lib/freight|share/freight|g' {} +
 
 %files
 %{_bindir}/%{name}*
@@ -54,7 +54,6 @@ ln -s %{_datadir}/%{name} %{buildroot}%{_prefix}/lib/%{name}
 %{_sharedstatedir}/%{name}
 %{_sysconfdir}/bash_completion.d/%{name}
 %{_sysconfdir}/profile.d/%{name}.sh
-%{_prefix}/lib/%{name}
 %config(noreplace) %{_sysconfdir}/%{name}.conf
 %doc %{_mandir}
 
