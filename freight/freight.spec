@@ -59,3 +59,6 @@ ln -s %{_datadir}/%{name} %{buildroot}%{_prefix}/lib/%{name}
 %doc %{_mandir}
 
 %changelog
+* Tue Jul 01 2014 Dominic Cleal <dcleal@redhat.com> 0.3.5-1
+- new package built with tito
+
