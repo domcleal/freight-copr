@@ -1,7 +1,7 @@
 %global commit f0421d5ab0978bc0e293d2f9a09017aef2d23434
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
-Name:		 freight
+Name:    freight
 Version: 0.3.5
 Release: 1%{?dist}
 Summary: A modern take on the Debian archive
@@ -32,8 +32,8 @@ make install DESTDIR=%{buildroot} \
              prefix=%{_prefix} \
              bindir=%{_bindir} \
              libdir=%{_datadir} \
-             sysconfdir=%{_sysconfdir}
-             mandir=%{_man} \
+             sysconfdir=%{_sysconfdir} \
+             mandir=%{_mandir}
 
 mv %{buildroot}/%{_sysconfdir}/freight.conf{.example,}
 
