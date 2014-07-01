@@ -3,7 +3,7 @@
 
 Name:    freight
 Version: 0.3.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A modern take on the Debian archive
 
 Group:   Development/Tools
@@ -58,6 +58,10 @@ find %{buildroot}%{_bindir} -type f -exec sed -i \
 %doc %{_mandir}
 
 %changelog
+* Tue Jul 01 2014 Dominic Cleal <dcleal@redhat.com> 0.3.5-2
+- Remove /usr/lib symlink, edit bin scripts instead (dcleal@redhat.com)
+- Fix formatting (dcleal@redhat.com)
+
 * Tue Jul 01 2014 Dominic Cleal <dcleal@redhat.com> 0.3.5-1
 - new package built with tito
 
